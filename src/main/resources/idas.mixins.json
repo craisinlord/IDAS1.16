@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "com.craisinlord.idas.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "idas.refmap.json",
+  "mixins": [
+    "resources.FallbackResourceManagerAccessor",
+    "resources.RandomRangesAccessor",
+    "resources.SimpleReloadableResourceManagerAccessor",
+    "structures.JigsawPatternAccessor",
+    "structures.SingleJigsawPieceAccessor",
+    "structures.TemplateAccessor",
+    "structures.TemplateManagerAccessor",
+    "structures.TemplateManagerMixin",
+    "world.BiomeProviderInvoker",
+    "world.ChunkGeneratorAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

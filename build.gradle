@@ -1,0 +1,132 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        jcenter()
+        mavenCentral()
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.4.0"
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
+
+version = "${mod_version}+${mc_version}"
+group = "com.craisinlord"
+archivesBaseName = "${modid}_forge"
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(8)
+    withSourcesJar()
+}
+
+minecraft {
+    mappings channel: "official", version: "1.16.5"
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+   
+    runs {
+        client {
+            workingDirectory project.file('run')
+            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods { idas { source sourceSets.main } }
+        }
+
+        server {
+            workingDirectory project.file('run')
+            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods { idas { source sourceSets.main } }
+        }
+
+        data {
+            workingDirectory project.file('run')
+            args '--mod', project.getProperty('modid'), '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods { idas { source sourceSets.main } }
+        }
+    }
+}
+
+repositories {
+    maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
+    maven { url "https://www.cursemaven.com" }
+    // flatDir { dirs 'deps' }
+    //maven { url = "https://maven.blamejared.com/" }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    if (System.getProperty("idea.sync.active") != "true") {
+        annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
+    }
+
+    //compileOnly
+    //runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
+    // runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
+    //runtimeOnly fg.deobf("curse.maven:simply_cats-332910:3498688")
+    //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3533703")
+    //runtimeOnly fg.deobf("curse.maven:bountiful-309516:3239647")
+    //runtimeOnly fg.deobf("curse.maven:kotlin_forge-351264:3452303")
+    //runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3476138")
+    //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3494919")
+    //runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3412586")
+    runtimeOnly fg.deobf("curse.maven:jei-${jei_curseforge_id}:${jei_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:theoneprobe-${top_curseforge_id}:${top_curseforge_file_id}")
+
+    runtimeOnly fg.deobf("curse.maven:create-${create_curseforge_id}:${create_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:flywheel-${flywheel_curseforge_id}:${flywheel_curseforge_file_id}")
+    //runtimeOnly fg.deobf("curse.maven:alexsmobs-${alexsmobs_curseforge_id}:${alexsmobs_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:quark-${quark_curseforge_id}:${quark_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:autoreglib-${arl_curseforge_id}:${arl_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:supplementaries-${sup_curseforge_id}:${sup_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:selene-${selene_curseforge_id}:${selene_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:citadel-${citadel_curseforge_id}:${citadel_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:cavesandcliffs-${cavesandcliffs_curseforge_id}:${cavesandcliffs_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:cavebiomes-${cavebiomes_curseforge_id}:${cavebiomes_curseforge_file_id}")
+
+
+    //runtimeOnly fg.deobf("curse.maven:iceandfire-${if_curseforge_id}:${if_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:rats-${rats_curseforge_id}:${rats_curseforge_file_id}")
+
+    // runtimeOnly fg.deobf("curse.maven:relics-445274:3470411")
+    // runtimeOnly fg.deobf("curse.maven:curios-309927:3456953")
+    // runtimeOnly fg.deobf("curse.maven:vampirism-233029:3475085")
+    // runtimeOnly fg.deobf("curse.maven:farmers_delight-398521:3418719")
+    // runtimeOnly fg.deobf("curse.maven:tardus-290247:3482231")
+    // runtimeOnly fg.deobf("curse.maven:etched-491890:3364913")
+    // runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3466080")
+    // runtimeOnly fg.deobf("curse.maven:pneumaticcraftrepressurized-281849:3470048")
+    // runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3431122")
+    // runtimeOnly fg.deobf("curse.maven:jellyfishing-397703:3458825")
+    // runtimeOnly fg.deobf("curse.maven:buzzierbees-355458:3226433")
+    // runtimeOnly fg.deobf("curse.maven:abnormalcore-382216:3457851")
+    // runtimeOnly fg.deobf("curse.maven:environmental-388992:3416597")
+    // runtimeOnly fg.deobf("curse.maven:ice_and_fire-264231:3441117")
+    // runtimeOnly fg.deobf("curse.maven:rat-323596:3319810")
+    // runtimeOnly fg.deobf("curse.maven:savageandravage-381736:3226442")
+    // runtimeOnly fg.deobf("curse.maven:dungeonsgear-401247:3517064")
+    // runtimeOnly fg.deobf("curse.maven:endremastered-404183:3406091")
+    // runtimeOnly fg.deobf("curse.maven:hexlands_ii-522216:3444952")
+    // runtimeOnly fg.deobf("com.resourcefulbees:ResourcefulBees:1.16.5-0.9.9.7")
+    // runtimeOnly fg.deobf("curse.maven:tidbits-514057:3450123")
+    // runtimeOnly fg.deobf("curse.maven:charmreforged-430988:3214651")
+}
+
+apply from: 'gradle/processresources.gradle'
+apply from: 'gradle/manifest.gradle'
+
+mixin {
+    add sourceSets.main, "${modid}.refmap.json"
+}
+
+task buildAndRelease{}
