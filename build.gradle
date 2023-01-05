@@ -97,6 +97,7 @@ dependencies {
 
     //runtimeOnly fg.deobf("curse.maven:iceandfire-${if_curseforge_id}:${if_curseforge_file_id}")
     runtimeOnly fg.deobf("curse.maven:rats-${rats_curseforge_id}:${rats_curseforge_file_id}")
+    runtimeOnly fg.deobf("curse.maven:byg-${byg_curseforge_id}:${byg_curseforge_file_id}")
 
     // runtimeOnly fg.deobf("curse.maven:relics-445274:3470411")
     // runtimeOnly fg.deobf("curse.maven:curios-309927:3456953")

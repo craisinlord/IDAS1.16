@@ -1,7 +1,7 @@
 package com.craisinlord.idas;
 
 import com.craisinlord.idas.biomeinjection.*;
-import com.craisinlord.idas.configs.*;
+import com.craisinlord.idas.configs.IDASConfig;
 import com.craisinlord.idas.misc.*;
 import com.craisinlord.idas.mixin.world.ChunkGeneratorAccessor;
 import com.craisinlord.idas.modinit.*;
@@ -34,8 +34,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.loading.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.maven.artifact.versioning.ArtifactVersion;
-import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,10 +44,8 @@ public class IDAS {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "idas";
 
-    public static boolean yungsBetterMineshaftIsOn = true;
-    public static boolean yungsBetterDungeonsIsOn = true;
+    public static boolean isIceFireOn = false;
     public static boolean isCharmOn = false;
-    public static boolean isCavesAndCliffsBackportOn = true;
 
     public IDAS() {
 
@@ -66,23 +62,16 @@ public class IDAS {
         forgeBus.addListener(EventPriority.HIGHEST, this::deepCopyDimensionalSpacing);
         forgeBus.addListener(this::addDimensionalSpacing);
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
+        forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
+        forgeBus.addListener(MobMapTrades::onWandererTradesEvent);
 
         modEventBus.addListener(this::setup);
         IDASStructures.STRUCTURE_FEATURES.register(modEventBus);
         IDASPlacements.DECORATORS.register(modEventBus);
 
         //For mod compat by checking if other mod is on
-        yungsBetterMineshaftIsOn = ModList.get().isLoaded("bettermineshafts");
-        yungsBetterDungeonsIsOn = ModList.get().isLoaded("betterdungeons");
-        isCharmOn = ModList.get().isLoaded("charm");
+        isIceFireOn = ModList.get().isLoaded("iceandfire");
 
-        // CCB added mineshafts that replaces vanilla's. We do not want to remove the vanilla mineshafts ourselves.
-        if(ModList.get().isLoaded("cavesandcliffs")) {
-            ArtifactVersion modVersion = ModList.get().getModContainerById("cavesandcliffs").get().getModInfo().getVersion();
-            if(modVersion.compareTo(new DefaultArtifactVersion("1.16.5-7.1.0")) > 0) {
-                isCavesAndCliffsBackportOn = true;
-            }
-        }
 
         BiomeSourceChecks.hexlandsiiIsOn = ModList.get().isLoaded("hexlands");
 
@@ -201,7 +190,16 @@ public class IDAS {
         DesertCamp.addDesertCamp(event);
         PillagerCamp.addPillagerCamp(event);
         WashingCamp.addWashingCamp(event);
+        //UndergroundCamp.addUndergroundCamp(event);
         AnimalDen.addAnimalDen(event);
         LumberCamp.addLumberCamp(event);
+        Bazaar.addBazaar(event);
+        HuntersCabin.addHuntersCabin(event);
+        BearclawInn.addBearclawInn(event);
+        RedhornGuild.addRedhornGuild(event);
+        Farmhouse.addFarmhouse(event);
+        WitchesTreestump.addWitchesTreestump(event);
+        HermitsHollow.addHermitsHollow(event);
+        ApothecaryAbode.addApothecaryAbode(event);
     }
 }

@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * A part of Omega Config that RS needs for serverside configs without syncs.
+ * A part of Omega Config that IDAS needs for serverside configs without syncs.
  * Original repo of Omega Config by Draylar (MIT License at the time of this comment):
  * https://github.com/Draylar/omega-config
  */

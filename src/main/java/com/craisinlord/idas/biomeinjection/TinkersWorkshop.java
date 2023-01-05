@@ -12,7 +12,7 @@ public class TinkersWorkshop {
 
         if (IDASConfig.tinkersworkshopAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.TINKERS_WORKSHOP.get(),
-                        () -> BiomeSelection.hasName(event, "forest", "plains", "meadow", "clearing", "field", "shrub", "wood", "grove")))
+                        () -> BiomeSelection.hasName(event, "forest", "plains", "meadow", "clearing", "field", "shrub", "grove")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.TINKERS_WORKSHOP);
         }

@@ -146,20 +146,6 @@
         {
           "type": "minecraft:item",
           "weight": 2,
-          "name": "alexsmobs:kangaroo_meat",
-          "functions": [
-            {
-              "function": "minecraft:limit_count",
-              "limit": {
-                "min": 3,
-                "max": 5
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
           "name": "alexsmobs:moose_ribs",
           "functions": [
             {
@@ -256,20 +242,6 @@
               "limit": {
                 "min": 5,
                 "max": 10
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "name": "alexsmobs:bear_fur",
-          "functions": [
-            {
-              "function": "minecraft:limit_count",
-              "limit": {
-                "min": 3,
-                "max": 6
               }
             }
           ]

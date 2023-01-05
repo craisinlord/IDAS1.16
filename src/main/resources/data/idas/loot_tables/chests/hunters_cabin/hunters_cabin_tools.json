@@ -2,55 +2,6 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:splash_potion",
-          "functions": [
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:strong_poison"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:potion",
-          "functions": [
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:long_strength"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:splash_potion",
-          "functions": [
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:strong_harming"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:potion",
-          "functions": [
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:long_invisibility"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "rolls": 2,
       "entries": [
         {

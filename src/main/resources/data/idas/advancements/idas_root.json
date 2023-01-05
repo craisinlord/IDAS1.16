@@ -9,10 +9,10 @@
     "description": {
       "translate": "Start exploring for structures!"
     },
-    "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": true,
-    "background": "minecraft:textures/block/green_terracotta.png"
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/purple_terracotta.png"
   },
   "criteria": {
     "always": {

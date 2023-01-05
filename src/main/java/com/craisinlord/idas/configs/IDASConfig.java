@@ -40,6 +40,16 @@ public class IDASConfig {
 	public static ForgeConfigSpec.IntValue lumbercampbygredwoodAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue lumbercampbopmahoganyAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue lumbercampbygmahoganyAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue bazaarAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue bearclawinnAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue hunterscabinAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue farmhouseAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue hermitshollowAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue witchestreestumpAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue redhornguildAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue undergroundcampAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue undergroundcampdeepAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue apothecaryabodeAverageChunkDistance;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -111,7 +121,7 @@ public class IDASConfig {
 
 		labyrinthAverageChunkDistance = builder
 				.translation("idas.labyrinthaveragechunkdistance")
-				.defineInRange("labyrinthAverageChunkDistance", 75, 1, 1001);
+				.defineInRange("labyrinthAverageChunkDistance", 60, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -131,7 +141,7 @@ public class IDASConfig {
 
 		ancientminesAverageChunkDistance = builder
 				.translation("idas.ancientminesAverageChunkDistance")
-				.defineInRange("ancientminesAverageChunkDistance", 50, 1, 1001);
+				.defineInRange("ancientminesAverageChunkDistance", 40, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -231,7 +241,7 @@ public class IDASConfig {
 
 		desertcampAverageChunkDistance = builder
 				.translation("idas.desertcampAverageChunkDistance")
-				.defineInRange("desertcampAverageChunkDistance", 12, 1, 1001);
+				.defineInRange("desertcampAverageChunkDistance", 18, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -241,7 +251,7 @@ public class IDASConfig {
 
 		desertcampredAverageChunkDistance = builder
 				.translation("idas.desertcampredAverageChunkDistance")
-				.defineInRange("desertcampredAverageChunkDistance", 12, 1, 1001);
+				.defineInRange("desertcampredAverageChunkDistance", 18, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -251,7 +261,7 @@ public class IDASConfig {
 
 		desertcamporangeAverageChunkDistance = builder
 				.translation("idas.desertcamporangeAverageChunkDistance")
-				.defineInRange("desertcamporangeAverageChunkDistance", 12, 1, 1001);
+				.defineInRange("desertcamporangeAverageChunkDistance", 18, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -271,7 +281,32 @@ public class IDASConfig {
 
 		washingcampAverageChunkDistance = builder
 				.translation("idas.washingcampAverageChunkDistance")
-				.defineInRange("washingcampAverageChunkDistance", 10, 1, 1001);
+				.defineInRange("washingcampAverageChunkDistance", 15, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Polar Bear Dens.",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("PolarBearDen");
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Underground Camps.",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("UndergroundCamp");
+
+		undergroundcampAverageChunkDistance = builder
+				.translation("idas.undergroundcampAverageChunkDistance")
+				.defineInRange("undergroundcampAverageChunkDistance", 25, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Deep Underground Camps.",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("UndergroundCamp");
+
+		undergroundcampdeepAverageChunkDistance = builder
+				.translation("idas.undergroundcampdeepAverageChunkDistance")
+				.defineInRange("undergroundcampdeepAverageChunkDistance", 25, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -281,7 +316,7 @@ public class IDASConfig {
 
 		polarbeardenAverageChunkDistance = builder
 				.translation("idas.polarbeardenAverageChunkDistance")
-				.defineInRange("polarbeardenAverageChunkDistance", 10, 1, 1001);
+				.defineInRange("polarbeardenAverageChunkDistance", 15, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -291,7 +326,7 @@ public class IDASConfig {
 
 		forestdenAverageChunkDistance = builder
 				.translation("idas.forestdenAverageChunkDistance")
-				.defineInRange("forestdenAverageChunkDistance", 10, 1, 1001);
+				.defineInRange("forestdenAverageChunkDistance", 15, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -392,6 +427,86 @@ public class IDASConfig {
 		lumbercampbygmahoganyAverageChunkDistance = builder
 				.translation("idas.lumbercampbygmahoganyAverageChunkDistance")
 				.defineInRange("lumbercampbygmahoganyAverageChunkDistance", 10, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Bazaars",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("Bazaar");
+
+		bazaarAverageChunkDistance = builder
+				.translation("idas.bazaarAverageChunkDistance")
+				.defineInRange("bazaarAverageChunkDistance", 60, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Bearclaw Inns",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("BearclawInn");
+
+		bearclawinnAverageChunkDistance = builder
+				.translation("idas.bearclawinnAverageChunkDistance")
+				.defineInRange("bearclawinnAverageChunkDistance", 45, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Hunters Cabin",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("HuntersCabin");
+
+		hunterscabinAverageChunkDistance = builder
+				.translation("idas.hunterscabinAverageChunkDistance")
+				.defineInRange("hunterscabinAverageChunkDistance", 40, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Farmhouses",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("Farmhouse");
+
+		farmhouseAverageChunkDistance = builder
+				.translation("idas.farmhouseAverageChunkDistance")
+				.defineInRange("farmhouseAverageChunkDistance", 30, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Hermit's Hollows",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("HermitsHollow");
+
+		hermitshollowAverageChunkDistance = builder
+				.translation("idas.hermitshollowAverageChunkDistance")
+				.defineInRange("hermitshollowAverageChunkDistance", 20, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Witches Treestumps",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("WitchesTreestump");
+
+		witchestreestumpAverageChunkDistance = builder
+				.translation("idas.witchestreestumpAverageChunkDistance")
+				.defineInRange("witchestreestumpAverageChunkDistance", 40, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Redhorn Guilds",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("RehornGuild");
+
+		redhornguildAverageChunkDistance = builder
+				.translation("idas.redhornguildAverageChunkDistance")
+				.defineInRange("redhornguildAverageChunkDistance", 45, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Apothecary Abodes",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("ApothecaryAbode");
+
+		apothecaryabodeAverageChunkDistance = builder
+				.translation("idas.apothecaryabodeAverageChunkDistance")
+				.defineInRange("apothecaryabodeAverageChunkDistance", 45, 1, 1001);
 		builder.pop();
 	}
 }

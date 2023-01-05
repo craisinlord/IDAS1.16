@@ -13,8 +13,9 @@ public class LumberCamp {
 
         if (IDASConfig.lumbercampoakAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.LUMBER_CAMP_OAK.get(),
-                        () -> (BiomeSelection.haveCategories(event, Biome.Category.FOREST)||
-                                BiomeSelection.hasName(event, "oak", "forest", "meadow", "grove", "shrub", "wood"))))
+                        () -> ((BiomeSelection.haveCategories(event, Biome.Category.FOREST) &&
+                                !(BiomeSelection.hasName(event, "coniferous", "taiga", "redwood", "tropical")))
+                             || BiomeSelection.hasName(event, "oak", "forest", "grove", "shrub", "wood"))))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LUMBER_CAMP_OAK);
         }
@@ -27,7 +28,7 @@ public class LumberCamp {
         }
         if (IDASConfig.lumbercampspruceAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.LUMBER_CAMP_SPRUCE.get(),
-                        () -> (BiomeSelection.haveCategories(event, Biome.Category.FOREST)&&
+                        () -> (BiomeSelection.haveCategories(event, Biome.Category.TAIGA)||
                                 BiomeSelection.hasName(event, "spruce", "taiga"))))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LUMBER_CAMP_SPRUCE);
@@ -55,21 +56,28 @@ public class LumberCamp {
         }
         if (IDASConfig.lumbercampbopredwoodAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.LUMBER_CAMP_BOPREDWOOD.get(),
-                        () -> BiomeSelection.hasName(event, "biomesoplenty")&&
+                        () -> BiomeSelection.hasNamespace(event, "biomesoplenty")&&
                                 BiomeSelection.hasName(event, "redwood")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LUMBER_CAMP_BOPREDWOOD);
         }
+        if (IDASConfig.lumbercampbygredwoodAverageChunkDistance.get() != 1001 &&
+                BiomeSelection.isBiomeAllowed(event, IDASStructures.LUMBER_CAMP_BYGREDWOOD.get(),
+                        () -> BiomeSelection.hasNamespace(event, "byg")&&
+                                BiomeSelection.hasName(event, "redwood")))
+        {
+            event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LUMBER_CAMP_BYGREDWOOD);
+        }
         if (IDASConfig.lumbercampbopmahoganyAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.LUMBER_CAMP_BOPMAHOGANY.get(),
-                        () -> BiomeSelection.hasName(event, "biomesoplenty")&&
+                        () -> BiomeSelection.hasNamespace(event, "biomesoplenty")&&
                                 BiomeSelection.hasName(event, "rainforest")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LUMBER_CAMP_BOPMAHOGANY);
         }
         if (IDASConfig.lumbercampbygmahoganyAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.LUMBER_CAMP_BYGMAHOGANY.get(),
-                        () -> BiomeSelection.hasName(event, "byg")&&
+                        () -> BiomeSelection.hasNamespace(event, "byg")&&
                                 BiomeSelection.hasName(event, "rainforest")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LUMBER_CAMP_BYGMAHOGANY);

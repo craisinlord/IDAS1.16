@@ -26,7 +26,7 @@ public class AncientStatue {
         }
         if (IDASConfig.ancientstatueplainsAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.ANCIENT_STATUE_PLAINS.get(),
-                        () -> BiomeSelection.hasName(event, "forest", "plains", "meadow", "clearing", "field", "shrub", "wood", "grove")))
+                        () -> BiomeSelection.hasName(event, "forest", "plains", "clearing", "field", "shrub", "wood", "grove")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.ANCIENT_STATUE_PLAINS);
         }

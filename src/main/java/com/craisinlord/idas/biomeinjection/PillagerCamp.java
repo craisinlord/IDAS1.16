@@ -13,7 +13,7 @@ public class PillagerCamp {
 
         if (IDASConfig.pillagercampAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.PILLAGER_CAMP.get(),
-                        () -> BiomeSelection.hasName(event, "forest", "plains", "meadow", "clearing", "field", "shrub", "wood", "grove")||
+                        () -> BiomeSelection.hasName(event, "forest", "plains", "clearing", "field", "shrub", "wood", "grove")||
                                 BiomeSelection.haveCategories(event, Biome.Category.FOREST)))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.PILLAGER_CAMP);

@@ -1,5 +1,6 @@
 package com.craisinlord.idas.biomeinjection;
 
+import com.craisinlord.idas.IDAS;
 import com.craisinlord.idas.configs.IDASConfig;
 import com.craisinlord.idas.modinit.IDASConfiguredStructures;
 import com.craisinlord.idas.modinit.IDASStructures;
@@ -13,7 +14,8 @@ public class Labyrinth {
 
         if (IDASConfig.labyrinthAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.LABYRINTH.get(),
-                        () -> BiomeSelection.haveCategories(event, Biome.Category.DESERT)))
+                        () -> BiomeSelection.haveCategories(event, Biome.Category.DESERT)&&
+                              BiomeSelection.hasName(event, "desert", "dry")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LABYRINTH);
         }
