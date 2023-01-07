@@ -12,7 +12,7 @@ public class WashingCamp {
 
         if (IDASConfig.washingcampAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.WASHING_CAMP.get(),
-                        () -> BiomeSelection.hasName(event, "forest", "plains", "meadow", "clearing", "field", "shrub", "wood", "grove")))
+                        () -> BiomeSelection.hasName(event, "forest", "plains", "clearing", "field", "shrub", "wood", "grove")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.WASHING_CAMP);
         }

@@ -1,5 +1,6 @@
 package com.craisinlord.idas.modinit;
 
+import com.craisinlord.idas.IDAS;
 import net.minecraft.world.gen.feature.structure.Structure;
 
 import java.util.HashMap;
@@ -75,6 +76,10 @@ public final class IDASStructureTagMap {
         addTags(IDASStructures.WITCHES_TREESTUMP.get(), Stream.of(STRUCTURE_TAGS.IDAS, STRUCTURE_TAGS.UNCOMMON, STRUCTURE_TAGS.GENERIC_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(IDASStructures.REDHORN_GUILD.get(), Stream.of(STRUCTURE_TAGS.IDAS, STRUCTURE_TAGS.UNCOMMON, STRUCTURE_TAGS.GENERIC_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(IDASStructures.APOTHECARY_ABODE.get(), Stream.of(STRUCTURE_TAGS.IDAS, STRUCTURE_TAGS.RARE, STRUCTURE_TAGS.GENERIC_AVOID_STRUCTURE).collect(Collectors.toSet()));
+
+        addTags(IDASStructures.LABYRINTH_IF.get(), Stream.of(STRUCTURE_TAGS.IDAS, STRUCTURE_TAGS.RARE, STRUCTURE_TAGS.GENERIC_AVOID_STRUCTURE).collect(Collectors.toSet()));
+
+        addTags(Structure.VILLAGE, Stream.of(STRUCTURE_TAGS.GENERIC_AVOID_STRUCTURE).collect(Collectors.toSet()));
     }
 
 

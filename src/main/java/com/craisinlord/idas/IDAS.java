@@ -2,12 +2,14 @@ package com.craisinlord.idas;
 
 import com.craisinlord.idas.biomeinjection.*;
 import com.craisinlord.idas.configs.IDASConfig;
+import com.craisinlord.idas.item.IDASItems;
 import com.craisinlord.idas.misc.*;
 import com.craisinlord.idas.mixin.world.ChunkGeneratorAccessor;
 import com.craisinlord.idas.modinit.*;
 import com.craisinlord.idas.utils.BiomeSelection;
 import com.craisinlord.idas.utils.GeneralUtils;
 import com.craisinlord.idas.utils.LogSpamFiltering;
+import com.craisinlord.idas.utils.SoundEvents;
 import com.craisinlord.idas.world.structures.pieces.StructurePiecesBehavior;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.util.ResourceLocation;
@@ -68,10 +70,11 @@ public class IDAS {
         modEventBus.addListener(this::setup);
         IDASStructures.STRUCTURE_FEATURES.register(modEventBus);
         IDASPlacements.DECORATORS.register(modEventBus);
+        IDASItems.register(modEventBus);
+        SoundEvents.register(modEventBus);
 
         //For mod compat by checking if other mod is on
         isIceFireOn = ModList.get().isLoaded("iceandfire");
-
 
         BiomeSourceChecks.hexlandsiiIsOn = ModList.get().isLoaded("hexlands");
 
@@ -83,12 +86,14 @@ public class IDAS {
         else {
             LOGGER.error("Registration failed with unexpected class: {}", rootLogger.getClass());
         }
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
 
     }
 
     public void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            //Moved the methods below into enqueue to make sure they dont cause issues during registration - andrew
+            //Moved the methods below into enqueue to make sure they dont cause issues during registration
             StructurePiecesBehavior.init();
             IDASProcessors.registerProcessors();
             IDASPredicates.registerPredicates();
@@ -201,5 +206,7 @@ public class IDAS {
         WitchesTreestump.addWitchesTreestump(event);
         HermitsHollow.addHermitsHollow(event);
         ApothecaryAbode.addApothecaryAbode(event);
+        TreetopTavern.addTreetopTavern(event);
+        BeekeepersHouse.addBeekeepersHouse(event);
     }
 }

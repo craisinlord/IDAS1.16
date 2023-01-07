@@ -56,6 +56,10 @@ public final class IDASConfiguredStructures {
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> WITCHES_TREESTUMP = IDASStructures.WITCHES_TREESTUMP.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> REDHORN_GUILD = IDASStructures.REDHORN_GUILD.get().configured(IFeatureConfig.NONE);
     public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> APOTHECARY_ABODE = IDASStructures.APOTHECARY_ABODE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> BEEKEEPERS_HOUSE = IDASStructures.BEEKEEPERS_HOUSE.get().configured(IFeatureConfig.NONE);
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> TREETOP_TAVERN = IDASStructures.TREETOP_TAVERN.get().configured(IFeatureConfig.NONE);
+
+    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> LABYRINTH_IF = IDASStructures.LABYRINTH_IF.get().configured(IFeatureConfig.NONE);
 
     public static void registerStructureFeatures() {
         Registry<StructureFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_STRUCTURE_FEATURE;
@@ -104,5 +108,9 @@ public final class IDASConfiguredStructures {
         Registry.register(registry, new ResourceLocation(IDAS.MODID, "witches_treestump"), WITCHES_TREESTUMP);
         Registry.register(registry, new ResourceLocation(IDAS.MODID, "redhorn_guild"), REDHORN_GUILD);
         Registry.register(registry, new ResourceLocation(IDAS.MODID, "apothecary_abode"), APOTHECARY_ABODE);
+        Registry.register(registry, new ResourceLocation(IDAS.MODID, "beekeepers_house"), BEEKEEPERS_HOUSE);
+        Registry.register(registry, new ResourceLocation(IDAS.MODID, "treetop_tavern"), TREETOP_TAVERN);
+
+        Registry.register(registry, new ResourceLocation(IDAS.MODID, "labyrinth_iceandfire"), LABYRINTH_IF);
     }
 }

@@ -1,5 +1,6 @@
 package com.craisinlord.idas.misc;
 
+import com.craisinlord.idas.IDAS;
 import com.craisinlord.idas.configs.IDASConfig;
 import com.craisinlord.idas.modinit.IDASStructures;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
@@ -25,12 +26,18 @@ public final class MobMapTrades {
             //level 4 trades
             if(IDASConfig.pillagerfortressAverageChunkDistance.get() != 1001)
                 event.getTrades().get(3).add(new VillagerTrades.EmeraldForMapTrade(14, IDASStructures.PILLAGER_FORTRESS.get(), MapDecoration.Type.MANSION, 12, 5));
-            if(IDASConfig.labyrinthAverageChunkDistance.get() != 1001)
-                event.getTrades().get(3).add(new VillagerTrades.EmeraldForMapTrade(14, IDASStructures.LABYRINTH.get(), MapDecoration.Type.BANNER_RED, 12, 10));
             if(IDASConfig.ancientminesAverageChunkDistance.get() != 1001)
                 event.getTrades().get(3).add(new VillagerTrades.EmeraldForMapTrade(14, IDASStructures.ANCIENT_MINES.get(), MapDecoration.Type.BANNER_GRAY, 12, 10));
             if(IDASConfig.tinkersworkshopAverageChunkDistance.get() != 1001)
                 event.getTrades().get(3).add(new VillagerTrades.EmeraldForMapTrade(14, IDASStructures.TINKERS_WORKSHOP.get(), MapDecoration.Type.BANNER_ORANGE, 12, 10));
+            if(IDASConfig.labyrinthAverageChunkDistance.get() != 1001) {
+                if (IDAS.isIceFireOn){
+                    event.getTrades().get(3).add(new VillagerTrades.EmeraldForMapTrade(14, IDASStructures.LABYRINTH_IF.get(), MapDecoration.Type.BANNER_RED, 12, 10));
+                }
+                else {
+                    event.getTrades().get(3).add(new VillagerTrades.EmeraldForMapTrade(14, IDASStructures.LABYRINTH.get(), MapDecoration.Type.BANNER_RED, 12, 10));
+                }
+            }
         }
     }
 

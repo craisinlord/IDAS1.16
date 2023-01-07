@@ -50,6 +50,8 @@ public class IDASConfig {
 	public static ForgeConfigSpec.IntValue undergroundcampAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue undergroundcampdeepAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue apothecaryabodeAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue beekeepershouseAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue treetoptavernAverageChunkDistance;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -71,7 +73,7 @@ public class IDASConfig {
 
 		abandonedhouseAverageChunkDistance = builder
 				.translation("idas.abandonedhouseaveragechunkdistance")
-				.defineInRange("abandonedhouseAverageChunkDistance", 40, 1, 1001);
+				.defineInRange("abandonedhouseAverageChunkDistance", 35, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -81,7 +83,7 @@ public class IDASConfig {
 
 		brickhouseAverageChunkDistance = builder
 				.translation("idas.brickhouseaveragechunkdistance")
-				.defineInRange("brickhouseAverageChunkDistance", 45, 1, 1001);
+				.defineInRange("brickhouseAverageChunkDistance", 40, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -90,8 +92,8 @@ public class IDASConfig {
 		builder.push("Castles");
 
 		castleAverageChunkDistance = builder
-				.translation("idas.csatleaveragechunkdistance")
-				.defineInRange("castleAverageChunkDistance", 50, 1, 1001);
+				.translation("idas.castleAverageChunkDistance")
+				.defineInRange("castleAverageChunkDistance", 40, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -191,7 +193,7 @@ public class IDASConfig {
 
 		ancientstatueplainsAverageChunkDistance = builder
 				.translation("idas.ancientstatueplainsAverageChunkDistance")
-				.defineInRange("ancientstatueplainsAverageChunkDistance", 20, 1, 1001);
+				.defineInRange("ancientstatueplainsAverageChunkDistance", 25, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -271,7 +273,7 @@ public class IDASConfig {
 
 		pillagercampAverageChunkDistance = builder
 				.translation("idas.pillagercampAverageChunkDistance")
-				.defineInRange("pillagercampAverageChunkDistance", 20, 1, 1001);
+				.defineInRange("pillagercampAverageChunkDistance", 25, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -436,7 +438,7 @@ public class IDASConfig {
 
 		bazaarAverageChunkDistance = builder
 				.translation("idas.bazaarAverageChunkDistance")
-				.defineInRange("bazaarAverageChunkDistance", 60, 1, 1001);
+				.defineInRange("bazaarAverageChunkDistance", 70, 1, 1001);
 		builder.pop();
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -507,6 +509,26 @@ public class IDASConfig {
 		apothecaryabodeAverageChunkDistance = builder
 				.translation("idas.apothecaryabodeAverageChunkDistance")
 				.defineInRange("apothecaryabodeAverageChunkDistance", 45, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Beekeepers House",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("BeekeepersHouse");
+
+		beekeepershouseAverageChunkDistance = builder
+				.translation("idas.beekeepershouseAverageChunkDistance")
+				.defineInRange("beekeepershouseAverageChunkDistance", 40, 1, 1001);
+		builder.pop();
+
+		builder.comment("-----------------------------------------------------------------------------------------",
+				" Average distance between spawn attempts for IDAS Treetop Taverns",
+				" 1 for spawning in most chunks and 1001 for none.");
+		builder.push("Treetop Taverns");
+
+		treetoptavernAverageChunkDistance = builder
+				.translation("idas.treetoptavernAverageChunkDistance")
+				.defineInRange("treetoptavernAverageChunkDistance", 40, 1, 1001);
 		builder.pop();
 	}
 }

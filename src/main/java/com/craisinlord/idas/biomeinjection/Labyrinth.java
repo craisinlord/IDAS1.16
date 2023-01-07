@@ -12,12 +12,19 @@ public class Labyrinth {
     private Labyrinth() {}
     public static void addLabyrinth(BiomeLoadingEvent event) {
 
-        if (IDASConfig.labyrinthAverageChunkDistance.get() != 1001 &&
+        if (!(IDAS.isIceFireOn) && IDASConfig.labyrinthAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowed(event, IDASStructures.LABYRINTH.get(),
                         () -> BiomeSelection.haveCategories(event, Biome.Category.DESERT)&&
                               BiomeSelection.hasName(event, "desert", "dry")))
         {
             event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LABYRINTH);
+        }
+        if (IDAS.isIceFireOn && IDASConfig.labyrinthAverageChunkDistance.get() != 1001 &&
+                BiomeSelection.isBiomeAllowed(event, IDASStructures.LABYRINTH.get(),
+                        () -> BiomeSelection.haveCategories(event, Biome.Category.DESERT)&&
+                                BiomeSelection.hasName(event, "desert", "dry")))
+        {
+            event.getGeneration().getStructures().add(() -> IDASConfiguredStructures.LABYRINTH_IF);
         }
     }
 }
